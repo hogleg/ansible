@@ -1,0 +1,13 @@
+[pi-printer]
+10.10.100.11
+10.10.110.11
+
+[pi]
+10.10.100.204
+10.10.100.241
+
+#Group 'multi' with all servers
+[multi:children]
+pi
+pi-printer
+

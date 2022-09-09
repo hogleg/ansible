@@ -1,0 +1,20 @@
+ansible notes
+
+---
+upgrade-01.yaml
+	base-package-install.yaml
+		adduser.yaml
+			config-file-copy.yaml
+
+
+
+7-16-2022
+current ansible files
+
+upgrade-01.yaml --- apt upgrade for debian machines
+
+inventory	--- list of hosts
+
+
+9-7-2022
+simple playbooks to add user, copy files, copy .config files, install software

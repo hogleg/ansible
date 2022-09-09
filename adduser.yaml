@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: create new user anthony
+    ansible.builtin.user:
+      name: anthony
+      shell: /bin/bash
+      password: $6$hz9oxp4u4nSvwX2e$XnE5ubogiEYOeuchODKjxQc3o5ruHW3CAaycjl9R9lfBW0GnzKORgoF0UKYQvu5cXhwC4bHjIu5UqGAG3.1s51
+#
+#create passwords:: mkpasswd --method=sha-512

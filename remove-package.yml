@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Remove chrony
+    apt:
+      name:
+      - chrony
+      state: absent

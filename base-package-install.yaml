@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install packages
+    apt:
+      name:
+      - ntpdate
+      - nmap
+      - zabbix-agent
+      - sudo
+      - debian-goodies
+      - screen
+      - vim
+      - mailutils
+      state: latest
+      cache_valid_time: 3600
