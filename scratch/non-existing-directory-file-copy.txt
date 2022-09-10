@@ -1,0 +1,15 @@
+#Copying file to a non-existing directory
+#
+#If the destination directory does not exist, the copy module takes care of creating it and #copying the file to the new directory with the same name as the source file name.
+#
+# copy_file.yml
+- name: copy files to destination
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: copy src.txt to a non existing directory
+      copy:
+        src: files/src.txt
+        dest: files/not_dir/
+      tags:
+        - dir_not_exist
