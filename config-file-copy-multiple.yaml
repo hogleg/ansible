@@ -1,0 +1,21 @@
+#config-file-copy-multiple.yaml
+#10-9-2022 AJM
+#to copy multiple configuration files to multiple destinations
+#
+#
+--- 
+- hosts: all
+  become: yes
+  tasks:
+      - name: Copy some files 
+        copy:
+          src: "{{ item.src }}"
+          dest: "{{ item.dest }}"
+          owner: root
+          group: root
+#          mode: "{{ item.mode }}"
+        with_items:
+        - { src: 'files/app1.conf', dest: '/etc/app1/' }
+        - { src: 'files/app2.conf', dest: '/etc/app2/' }
+        - { src: 'files/app3.conf', dest: '/etc/app3/' }
+
