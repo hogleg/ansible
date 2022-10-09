@@ -13,9 +13,10 @@
           dest: "{{ item.dest }}"
           owner: root
           group: root
-#          mode: "{{ item.mode }}"
+          mode: 0644
         with_items:
-        - { src: 'files/app1.conf', dest: '/etc/app1/' }
-        - { src: 'files/app2.conf', dest: '/etc/app2/' }
-        - { src: 'files/app3.conf', dest: '/etc/app3/' }
+        - { src: 'files/ssmtp.conf', dest: '/etc/ssmtp/' }
+        - { src: 'files/revaliases', dest: '/etc/ssmtp/' }
+        - { src: 'files/ntp-client-001.conf', dest: '/etc/ntp.conf' }
+        - { src: 'files/rsyslog.conf', dest: '/etc/rsyslog.conf' }
 

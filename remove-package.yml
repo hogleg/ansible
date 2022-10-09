@@ -1,9 +1,13 @@
+#remove-package.yml
+#10-9-2022
+#
+#Does not actually remove package but disables and stops the service
+#
 ---
 - hosts: all
   become: yes
   tasks:
-  - name: Remove chrony
-    apt:
-      name:
-      - chrony
-      state: absent
+    - name: Remove postfix
+      apt:
+        name: postfix
+        state: absent
