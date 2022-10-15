@@ -18,3 +18,11 @@ inventory	--- list of hosts
 
 9-7-2022
 simple playbooks to add user, copy files, copy .config files, install software
+
+
+
+
+10-15-2022
+
+update-reboot.yaml	--- apt upgrade and reboot if needed for all debian machines
+
