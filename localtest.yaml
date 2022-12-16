@@ -1,0 +1,11 @@
+---
+ - name: "testing changes on localhost"
+   hosts: localhost
+   connection: local
+   tasks:
+
+   - name: "just execute ls in the current directory"
+     shell: "ls -lrt"
+     register: "output"
+
+   - debug: var=output.stdout_lines
