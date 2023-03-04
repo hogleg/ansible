@@ -24,3 +24,4 @@ printserver.local.lan
 deb-clone1.local.lan
 deb-clone2.local.lan
 389-ds.local.lan
+volumio.local.lan
