@@ -16,6 +16,9 @@
       - vim
       - mailutils
       - git
+      - ntp
       - ranger
+      - ncal
+      - qemu-guest-agent
       state: latest
       cache_valid_time: 3600
