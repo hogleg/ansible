@@ -1,0 +1,39 @@
+---
+- hosts: yum
+  tasks:
+  - name : Update all installed packages for RPM based distros
+    yum:
+      name: '*'
+      state: latest
+      update_cache: yes
+      update_only: yes
+    register: yum_update_status
+
+
+  - name: Remove packages that are no longer needed
+    yum:
+      autoremove: yes
+
+  - name: Reboot when packages are updated
+    reboot:
+    when: yum_update_status.changed
+
+
+- hosts: apt
+  tasks:
+  - name: Update all installed packages for Debian based distros
+    apt:
+      name: '*'
+      state: latest
+      update_cache: yes
+      only_upgrade: yes
+    register: apt_update_status
+
+  - name: Remove packages that are no longer needed
+    apt:
+      autoremove: yes
+
+  - name: Reboot when packages are updated if needed
+    reboot:
+      post_reboot_delay: 60
+    when: apt_update_status.changed
