@@ -1,9 +1,11 @@
 [special]
 localhost
 
-[yum]
-fedora.local.lan
+[yum_redhat]
 redhat.local.lan
+
+[yum_fedora]
+fedora.local.lan
 
 [apt]
 host-2-160-101.local.lan
@@ -25,3 +27,4 @@ deb-clone1.local.lan
 deb-clone2.local.lan
 389-ds.local.lan
 volumio.local.lan
+kubuntu.local.lan

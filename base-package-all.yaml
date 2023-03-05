@@ -1,0 +1,66 @@
+---
+- hosts: yum_redhat
+  tasks:
+  - name: Install base packages for RedHat based RPM distro's
+    yum:
+      name:
+        - unzip
+        - sysstat
+        - nmap
+        - sudo
+        - vim-enhanced
+        - git
+        - qemu-guest-agent
+        - chrony
+      state: present
+      update_cache: yes
+    become: true
+    register: yum_update_status
+
+
+- hosts: yum_fedora
+  tasks:
+  - name: Install base packages for Fedora based RPM distro's
+    yum:
+      name:
+        - unzip
+        - sysstat
+        - ssmtp
+        - nmap
+        - zabbix-agent
+        - sudo
+        - vim-enhanced
+        - git
+        - ranger
+        - qemu-guest-agent
+        - chrony
+      state: present
+      update_cache: yes
+    become: true
+    register: yum_update_status
+
+
+- hosts: apt
+  become: yes
+  tasks:
+  - name: Install base packages for APT based distro's
+    apt:
+      name:
+      - ssmtp
+      - sysstat
+      - ntpdate
+      - nmap
+      - zabbix-agent
+      - sudo
+      - debian-goodies
+      - screen
+      - vim
+      - mailutils
+      - git
+      - ntp
+      - ranger
+      - ncal
+      - qemu-guest-agent
+      - unzip
+      state: latest
+      cache_valid_time: 3600
