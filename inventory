@@ -1,6 +1,10 @@
 [special]
 localhost
 
+[yum]
+redhat.local.lan
+fedora.local.lan
+
 [yum_redhat]
 redhat.local.lan
 
