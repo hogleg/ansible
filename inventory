@@ -32,3 +32,7 @@ deb-clone2.local.lan
 389-ds.local.lan
 volumio.local.lan
 kubuntu.local.lan
+
+[test]
+host1
+host2
