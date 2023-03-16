@@ -7,11 +7,11 @@
 # copy_file.yml
 ---
 - name: copy files to destination
-  hosts: all
+  hosts: apt
   tasks:
     - name: copy src.txt to a non existing directory
       copy:
-        src: files/src.txt
-        dest: /etc
+        src: files/00aptproxy
+        dest: /etc/apt/apt.conf.d
       tags:
         - dir_not_exist

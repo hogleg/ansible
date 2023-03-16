@@ -12,6 +12,7 @@
         - git
         - qemu-guest-agent
         - chrony
+        - rsyslog
       state: present
       update_cache: yes
     become: true
@@ -34,6 +35,8 @@
         - ranger
         - qemu-guest-agent
         - chrony
+        - rsyslog
+        - ntpsec
       state: present
       update_cache: yes
     become: true
@@ -62,5 +65,6 @@
       - ncal
       - qemu-guest-agent
       - unzip
+      - rsyslog
       state: latest
       cache_valid_time: 3600

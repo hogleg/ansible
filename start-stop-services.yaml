@@ -1,0 +1,31 @@
+#Ansible playbook to start and stop services 
+#
+# This is broken. SSH does not stop/start cleanly
+---
+- hosts: apt
+  become: yes
+  tasks:
+#    - name: restart the ssh service
+#      ansible.builtin.service:
+#        name: ssh
+#        state: restarted
+
+    - name: restart rsyslog service
+      ansible.builtin.service:
+        name: rsyslog
+        state: restarted
+#
+#
+#
+- hosts: yum_fedora
+  become: yes
+  tasks:
+     - name: restart rsylog on fedora
+       ansible.builtin.service:
+         name: rsyslog
+         state: restarted
+
+     - name: restart chronyd
+       ansible.builtin.service:
+         name: chronyd
+         state: restarted

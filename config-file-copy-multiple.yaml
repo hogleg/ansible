@@ -2,21 +2,38 @@
 #10-9-2022 AJM
 #to copy multiple configuration files to multiple destinations
 #
-#
+#NOTE for with_items, the destination needs a trailing slash for the file to land
+#do not use a trailing slash if the file is ...  note line 19 and line 22
 --- 
-- hosts: test
+- hosts: apt
   become: yes
   tasks:
-      - name: Copy some files 
-        copy:
-          src: "{{ item.src }}"
-          dest: "{{ item.dest }}"
-          owner: root
-          group: root
-          mode: 0644
-        with_items:
-        - { src: 'files/ssmtp.conf', dest: '/etc/ssmtp/' }
-        - { src: 'files/revaliases', dest: '/etc/ssmtp/' }
-        - { src: 'files/ntp-client-001.conf', dest: '/etc/ntp.conf' }
-        - { src: 'files/rsyslog.conf', dest: '/etc/rsyslog.conf' }
-
+  - name: Copy some files 
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: root
+      group: root
+      mode: 0644
+    with_items:
+      - { src: 'files/ssmtp.conf', dest: '/etc/ssmtp/' }
+      - { src: 'files/revaliases', dest: '/etc/ssmtp/' }
+      - { src: 'files/ntp-client-001.conf', dest: '/etc/ntp.conf' }
+      - { src: 'files/rsyslog.conf', dest: '/etc/rsyslog.conf' }
+      - { src: 'files/00aptproxy', dest: '/etc/apt/apt.conf.d/'}
+- hosts: yum_fedora
+  become: yes
+  tasks:
+  - name: Copy some files 
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: root
+      group: root
+      mode: 0644
+    with_items:
+      - { src: 'files/ssmtp.conf', dest: '/etc/ssmtp/' }
+      - { src: 'files/revaliases', dest: '/etc/ssmtp/' }
+      - { src: 'files/ntp-client-001.conf', dest: '/etc/ntp.conf' }
+      - { src: 'files/rsyslog.conf', dest: '/etc/rsyslog.conf' }
+#      - { src: 'files/00aptproxy', dest: '/etc/apt/apt.conf.d/'}

@@ -12,8 +12,10 @@ redhat.local.lan
 fedora.local.lan
 
 [apt]
-host-2-160-101.local.lan
-host-1-160-102.local.lan
+samba
+deb11
+host1
+host2
 2204LTS.local.lan
 ubuntu-2204.local.lan
 unifi-lxc.local.lan
@@ -32,6 +34,7 @@ deb-clone2.local.lan
 389-ds.local.lan
 volumio.local.lan
 kubuntu.local.lan
+aptcacher.local.lan
 
 [test]
 host1
